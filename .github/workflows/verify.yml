@@ -4,7 +4,10 @@ jobs:
   Build:
     runs-on: ${{ matrix.os }}
     strategy:
-      os: [ubuntu-latest, macos-latest]
+      matrix:
+        include:
+          - os: ubuntu-latest
+          - os: macos-latest
     steps:
       - uses: actions/checkout@v2
       - run: make
